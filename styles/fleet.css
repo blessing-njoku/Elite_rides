@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.fleet-grid{
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.fleet-card{
+  background:  #151518;   
+  overflow: hidden;
+  width: 350px;
+  border-radius: 10px;
+}
+.fleet-pic{
+  display: flex;
+  width: 300%;
+  animation: slide 12ss infinite;
+}
+.fleet-pic img{
+  width: calc(100% / 3);
+  height: 40vh;
+  object-fit: cover;
+}
+@keyframes slide{
+ 0%, 25% { transform: translateX(0); }
+  
+  /* Image 2 */
+  33%, 58% { transform: translateX(-33.33%); }
+  
+  /* Image 3 */
+  66%, 91% { transform: translateX(-66.66%); }
+  
+  /* Reset to start */
+  100% { transform: translateX(0); }
+
+}

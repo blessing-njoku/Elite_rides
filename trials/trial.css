@@ -1,0 +1,195 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+  background:#0c0c0e;
+  color:white;
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.logo{
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.nav-links{
+  display:flex;
+  list-style:none;
+  gap:30px;
+  color:#bfc1c2;
+}
+
+.nav-links li:hover{
+  color:#c6a75e;
+  cursor:pointer;
+}
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.book-btn{
+  background:#0a4c7a;
+  color:white;
+  padding:10px 25px;
+  border-radius:30px;
+  border:none;
+  transition:0.4s;
+}
+
+.book-btn:hover{
+  background:#063457;
+}
+
+/* HERO */
+.hero{
+  height:90vh;
+  background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+             url("../images/about_bg.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero-content h1{
+  font-size:48px;
+  max-width:800px;
+}
+
+.hero-content p{
+  margin:20px 0;
+  font-size:18px;
+  color:#bfc1c2;
+}
+
+.hero-btn{
+  background:#0a4c7a;
+  padding:14px 35px;
+  border-radius:30px;
+  border:none;
+  font-weight:600;
+}
+
+/* TRUST STRIP */
+.trust{
+  display:flex;
+  justify-content:space-around;
+  padding:30px;
+  background:#151518;
+  color:#bfc1c2;
+}
+
+/* ABOUT */
+.about{
+  display:flex;
+  gap:60px;
+  padding:80px 10%;
+  align-items:center;
+}
+
+.about-text h2{
+  color:#c6a75e;
+  margin-bottom:20px;
+}
+
+.about-image img{
+  width:100%;
+  height:400px;
+  object-fit:cover;
+  border-radius:20px;
+}
+
+/* FLEET */
+.fleet{
+  padding:80px 10%;
+  text-align:center;
+}
+
+.fleet h2{
+  margin-bottom:50px;
+}
+
+.fleet-grid{
+  display:flex;
+  gap:40px;
+  justify-content:center;
+}
+
+.fleet-card{
+  background:#151518;
+  padding:40px;
+  border-radius:20px;
+  width:300px;
+  transition:0.4s;
+}
+
+.fleet-card:hover{
+  transform:translateY(-10px);
+}
+
+.vip-card{
+  border:1px solid #c6a75e;
+}
+
+/* VIP SECTION */
+.vip{
+  text-align:center;
+  padding:100px 20%;
+  background:#111113;
+}
+
+.vip h2{
+  color:#c6a75e;
+  margin-bottom:20px;
+}
+
+.vip-btn{
+  margin-top:30px;
+  padding:12px 30px;
+  background:#c6a75e;
+  border:none;
+  border-radius:30px;
+  color:black;
+  font-weight:600;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:30px;
+  border-top:1px solid rgba(255,255,255,0.05);
+  color:#bfc1c2;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .about{
+    flex-direction:column;
+  }
+
+  .fleet-grid{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .trust{
+    flex-direction:column;
+    gap:15px;
+    text-align:center;
+  }
+}

@@ -1,0 +1,160 @@
+
+<!-- pop-upmodal with info per course  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Our Courses</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+
+  <style>
+    @keyframes scale {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .animate-scale {
+      animation: scale 0.25s ease-out;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+
+  <div class="p-8 max-w-7xl mx-auto">
+    <h1 class="text-3xl font-bold text-center mb-8">OUR COURSES</h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Course Card -->
+      <div class="bg-white rounded-lg shadow-md p-4 hover:-translate-y-2 transition">
+        <img src="https://via.placeholder.com/400x200" class="rounded mb-4">
+        <h4 class="font-bold text-lg mb-2">DIGITAL MARKETING</h4>
+        <p class="text-sm text-gray-600 mb-3">
+          Learn how to grow brands online.
+        </p>
+        <button class="view-more text-blue-600 font-medium"
+          data-title="Digital Marketing"
+          data-description="This course covers SEO, social media marketing, Google Ads, Facebook Ads, email marketing, analytics, and content strategy. Students will work on real campaigns and build a professional portfolio."
+          data-duration="16 Weeks"
+          data-level="Beginner to Advanced">
+          View more
+        </button>
+      </div>
+
+      <!-- Course Card -->
+      <div class="bg-white rounded-lg shadow-md p-4 hover:-translate-y-2 transition">
+        <img src="https://via.placeholder.com/400x200" class="rounded mb-4">
+        <h4 class="font-bold text-lg mb-2">FRONTEND DEVELOPMENT</h4>
+        <p class="text-sm text-gray-600 mb-3">
+          Build beautiful websites.
+        </p>
+        <button class="view-more text-blue-600 font-medium"
+          data-title="Frontend Web Development"
+          data-description="Learn HTML, CSS, Tailwind, JavaScript, Git, and responsive design. You will build real websites and web apps from scratch."
+          data-duration="20 Weeks"
+          data-level="Beginner">
+          View more
+        </button>
+      </div>
+
+      <!-- Course Card -->
+      <div class="bg-white rounded-lg shadow-md p-4 hover:-translate-y-2 transition">
+        <img src="https://via.placeholder.com/400x200" class="rounded mb-4">
+        <h4 class="font-bold text-lg mb-2">BACKEND DEVELOPMENT</h4>
+        <p class="text-sm text-gray-600 mb-3">
+          Server-side mastery.
+        </p>
+        <button class="view-more text-blue-600 font-medium"
+          data-title="Backend Web Development"
+          data-description="Covers Node.js, Express, databases (MongoDB & MySQL), APIs, authentication, and deployment. Learn how real-world servers work."
+          data-duration="20 Weeks"
+          data-level="Intermediate">
+          View more
+        </button>
+      </div>
+
+      <!-- Course Card -->
+      <div class="bg-white rounded-lg shadow-md p-4 hover:-translate-y-2 transition">
+        <img src="https://via.placeholder.com/400x200" class="rounded mb-4">
+        <h4 class="font-bold text-lg mb-2">CYBERSECURITY</h4>
+        <p class="text-sm text-gray-600 mb-3">
+          Protect systems & networks.
+        </p>
+        <button class="view-more text-blue-600 font-medium"
+          data-title="Cybersecurity for Beginners"
+          data-description="Learn ethical hacking basics, networking, system vulnerabilities, penetration testing fundamentals, and security best practices."
+          data-duration="18 Weeks"
+          data-level="Beginner">
+          View more
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50">
+
+    <div class="bg-white rounded-lg max-w-xl w-full p-6 relative animate-scale">
+
+      <button id="closeModal"
+        class="absolute top-3 right-3 text-gray-500 hover:text-black text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h2 id="modalTitle" class="text-2xl font-bold mb-3"></h2>
+
+      <p id="modalDescription" class="text-gray-700 mb-4"></p>
+
+      <div class="flex gap-4 text-sm text-gray-600">
+        <span><i class="fa-solid fa-clock mr-1"></i> <span id="modalDuration"></span></span>
+        <span><i class="fa-solid fa-layer-group mr-1"></i> <span id="modalLevel"></span></span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalDuration = document.getElementById("modalDuration");
+    const modalLevel = document.getElementById("modalLevel");
+    const closeModal = document.getElementById("closeModal");
+
+    document.querySelectorAll(".view-more").forEach(btn => {
+      btn.addEventListener("click", () => {
+        modalTitle.textContent = btn.dataset.title;
+        modalDescription.textContent = btn.dataset.description;
+        modalDuration.textContent = btn.dataset.duration;
+        modalLevel.textContent = btn.dataset.level;
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      });
+    });
+
+    closeModal.addEventListener("click", () => {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    });
+
+    modal.addEventListener("click", e => {
+      if (e.target === modal) {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      }
+    });
+  </script>
+
+</body>
+</html>
